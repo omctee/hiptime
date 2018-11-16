@@ -3,11 +3,15 @@ class ItemsController < ApplicationController
   #before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @items = Item.all.order("created_at DESC")
+    if user_signed_in?
+    #@items = Item.all.order("created_at DESC")
+      @items = Item.where(:user_id => current_user.id).order("created_at DESC")
+    end
   end
 
   def new
     @item = current_user.items.build
+    #@item = Item.new
   end
 
   def show
@@ -32,6 +36,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = current_user.items.build(item_params)
+    #@item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
