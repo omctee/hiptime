@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(items_params)
-      redirect_to @item, notice: "Info: Item was updated!"
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: "Info: Item was updated!"
     else
       render 'edit'
     end
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(items_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def items_params
+  def item_params
     params.require(:item).permit(:title, :description)
   end
 

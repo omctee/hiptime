@@ -40,7 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 #gem 'haml', '~> 5.0', '>= 5.0.4'
-#gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'rails-ujs', '~> 0.1.0'
 #gem 'paperclip', '~>4.2.0'
